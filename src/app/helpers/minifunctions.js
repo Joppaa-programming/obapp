@@ -70,3 +70,20 @@ export function filterByKey(key, data, filter) {
     const link = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
      window.open(link, '_blank')
   }
+
+ export function cleanData(data) {
+    return data.map((item) => {
+      const cleanedItem = {};
+      for (const key in item) {
+        if (Object.prototype.hasOwnProperty.call(item, key)) {
+          if (typeof item[key] === 'object' && Object.keys(item[key]).length === 1) {
+            const type = Object.keys(item[key])[0];
+            cleanedItem[key] = item[key][type];
+          } else {
+            cleanedItem[key] = item[key];
+          }
+        }
+      }
+      return cleanedItem;
+    });
+  }

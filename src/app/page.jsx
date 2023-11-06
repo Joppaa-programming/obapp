@@ -16,6 +16,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 //app
 export default function Home() {
+  const dispatch = useDispatch()
   const origins = useSelector(state => state.origins.origins);
   return (
     

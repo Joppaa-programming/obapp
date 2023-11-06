@@ -45,7 +45,7 @@ export const loginUser = createAsyncThunk(
       )
       // store user's token in local storage
       localStorage.setItem('userToken', data._id)
-      console.log(data);
+     // console.log(data);
 
       return data;
     } catch (error) {
@@ -66,9 +66,9 @@ let userToken = "";
 
 if (typeof window !== 'undefined') {
   userToken = localStorage.getItem('userToken') ? localStorage.getItem('userToken') : null;
-  console.log('we are running on the client')
+  //console.log('we are running on the client')
 } else {
-  console.log('we are running on the server');
+ // console.log('we are running on the server');
 }
 
 const initialState = {

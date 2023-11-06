@@ -2,8 +2,8 @@
 import React from 'react'
 //import Link from 'next/link';
 //import { useRouter, usePathname, useParams } from 'next/navigation';
-import businesses from '@/app/utils/business';
-import origins from '@/app/utils/origins';
+//import businesses from '@/app/utils/business';
+//import origins from '@/app/utils/origins';
 //import { IconContext } from "react-icons";
 //import { FaAngleLeft, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
 import Grid from '@/app/componets/grid';
@@ -15,6 +15,7 @@ import Grid from '@/app/componets/grid';
 // import ReferButton from '@/app/componets/referShare';
 import { getGoogleMapsLink } from '@/app/helpers/minifunctions';
 import { FaMapMarker } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 async function filterById(id, data) {
 
   return await data.find(x => x.id === parseInt(id));
@@ -46,12 +47,17 @@ function nFormatter(num, digits) {
 export default  function Account(params) {
   const paramsd = params.params;
   const { id } = paramsd
-  const parsedId = parseInt(id);
-
+  const inputString = id;
+const modifiedString = inputString.replace('%40', '@');
+  const parsedId = modifiedString;
+  const origins = useSelector(state => state.origins.origins);
+  const businesses = useSelector(state => state.businesses.businesses);
   const gridData = filterByKey("businessId", origins, parsedId);
 
-  // console.log("hi"+{gridData});
-  const business = businesses.find(business => business.id === parseInt(id));
+
+  const business = businesses.find(business => 
+    business.SK === modifiedString);
+  console.log(business);
   if (!business) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Business Found </div>

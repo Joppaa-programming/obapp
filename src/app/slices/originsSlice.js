@@ -1,18 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import origins from '../utils/origins';
+import axios from 'axios';
 
-export const fetchOrigins = createAsyncThunk('origins/getAll', async ()=> {
-    // const response = await fetch("url");
-    // const data = response.json();
-    const data = origins;
-    return data ;
-})
+const initialState = {
+  origins: origins,
+  "status": 'idle',
+  error : ''
+}
 
 
-const initialState =   {
-     origins : origins,
-    "status": 'idle'
-    }
+const fetchOrigins = createAsyncThunk('origins/fetchOrigins', async () => {
+  try {
+    const { data: response } = await axios.get('/api/origins');
+    //console.log(JSON.stringify(response));
+    return response;
+  } catch (error) {
+    throw error; // This will trigger the error state
+  }
+});
+
+
 
 
 
@@ -20,22 +27,25 @@ const originsSlice = createSlice({
   name: 'origins',
   initialState,
   reducers: {
-    // Give case reducers meaningful past-tense "event"-style names
-originsAdded : {
-  reducer(state,action){
-    state.origins.push(action.payload);
-  }
-}
-  },
-  extraReducers:(builder)=>{
-builder.addCase(fetchOrigins.fulfilled, (state, actions)=>{
-    state.status = 'fulfilled';
-    // const loadedOrigins = actions.payload.map(origin => {
 
-    // })
-     state.origins = state.origins.concat(actions.payload);
-})
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchOrigins.pending, (state, actions) => {
+      console.log('origins pending');
+      state.status = 'pending';
+    }),
+    builder.addCase(fetchOrigins.fulfilled, (state, actions) => {
+      state.status = 'fulfilled';
+    //  console.log('origins gotten',actions.payload);
+      state.origins = actions.payload;
+    }),
+    builder.addCase(fetchOrigins.rejected, (state, actions) => {
+   //   console.log('origins didnt gotten');
+      state.origins = state.origins.concat(actions.payload);
+      state.status = 'rejected';
+    })
   }
+ 
 })
 
 // `createSlice` automatically generated action creators with these names.
@@ -43,4 +53,6 @@ builder.addCase(fetchOrigins.fulfilled, (state, actions)=>{
 // export const { originAdded, originToggled } = originsSlice.actions
 
 // Export the slice reducer as the default export
-export default originsSlice.reducer
+//export default originsSlice.reducer
+export const originsReducer = originsSlice.reducer;
+export { fetchOrigins };

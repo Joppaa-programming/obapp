@@ -2,19 +2,19 @@
 import React from 'react'
 import Link from 'next/link';
 import { useRouter, usePathname, useParams } from 'next/navigation';
-import businesses from '@/app/utils/business';
+//import businesses from '@/app/utils/business';
 import { IconContext } from "react-icons";
 import { FaAngleLeft, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
 import Grid from '@/app/componets/grid';
 import Button from '@/app/componets/button';
 import Navigate2Busines from '@/app/componets/navigate2busines';
-import origins from '@/app/utils/origins';
+//import origins from '@/app/utils/origins';
 import TopBar from '@/app/componets/topbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { originSaved, originAdded } from '../../slices/savedSlice';
 import X3Grid from '@/app/componets/3by3grid';
 import CircleImages from '@/app/componets/circleImage';
-
+import { fetchOrigins } from '@/app/slices/originsSlice';
 
 function nFormatter(num, digits) {
   const lookup = [
@@ -38,6 +38,8 @@ function BusinessDetail(params) {
   const router = useRouter();
 
   const saver = useSelector(state => state.saved.saved);
+  const origins = useSelector(state => state.origins.origins);
+  const businesses = useSelector(state => state.businesses.businesses);
   const dispatch = useDispatch();
   function handleSave(origin) {
     console.log("origin", " " + origin);
@@ -70,17 +72,18 @@ function BusinessDetail(params) {
 
   const paramsd = params.params;
   const { id } = paramsd
-  // console.log(id);
-
-  const origin = origins.find(origin => origin.id === parseInt(id));
+  
+//console.log(parseInt(id));
+  const origin = origins.find(origin => origin.id === id);
+ // console.log(origin);
   if (!origin) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )
   }
-  const business = businesses.find(business => business.id === origin.businessId);
+  const business = businesses.find(business => business.SK === origin.businessId ) ;
   // const businessName = business.businessName;
-  const saves = nFormatter(business.saves, 1);
+  const saves = nFormatter(business?.saves, 1);
   return (
 
     <div id='originPage' className=" lg:max-w-5xl " >
@@ -115,9 +118,9 @@ function BusinessDetail(params) {
 function businessDets(origin, saves, business) {
   return <Link href={`/business/${origin.businessId}`}  > <div className='flex w-full'>
     <span className='w-12 h-12'>
-   <CircleImages w={12} src={business.logo} alt={business.businessName} id={'business-logo'} />
+   <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
    </span>
-    <div className='px-3'>              <p className='font-semibold'>{business.businessName}</p>
+    <div className='px-3'>              <p className='font-semibold'>{business?.businessName}</p>
       <p>{saves}  saves</p></div>
   </div>
   </Link>;

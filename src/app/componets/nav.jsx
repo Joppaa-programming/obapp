@@ -3,9 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
+import { fetchOrigins } from '../slices/originsSlice';
 import { FaArrowLeft, FaRegBookmark, FaShapes, FaBookmark, FaSearch, FaBold } from 'react-icons/fa';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchBusinesses } from '../slices/business';
 function NavBar() {
   const [navbar, setNavbar] = useState(false);
   const handleNav = () => {
@@ -19,7 +21,12 @@ function NavBar() {
   function handleBackClick() {
     router.back()
   }
+const dispatch = useDispatch();
 
+useEffect(() =>{
+dispatch(fetchOrigins());
+dispatch(fetchBusinesses());
+}, [])
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -36,6 +43,7 @@ function NavBar() {
     </button>
     );
   }
+
   return (
     <>
       <div className='' >
