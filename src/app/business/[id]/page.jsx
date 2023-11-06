@@ -53,7 +53,7 @@ const modifiedString = inputString.replace('%40', '@');
   const origins = useSelector(state => state.origins.origins);
   const businesses = useSelector(state => state.businesses.businesses);
   const gridData = filterByKey("businessId", origins, parsedId);
-
+ 
 
   const business = businesses.find(business => 
     business.SK === modifiedString);
