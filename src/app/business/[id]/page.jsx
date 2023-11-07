@@ -90,7 +90,7 @@ const modifiedString = inputString.replace('%40', '@');
                 <div className='px-3 py-3 flex justify-center items-center flex-col w-full'>
                   <p className='font-semibold text-3xl'>{business.businessName}</p>
                   <div className='flex flex-row justify-start my-2 items-center hover:text-violet-600'> <FaMapMarker className='text-[12px] '/> <p onClick={() => handleClick(business.address)} className='text-[12px] px-2 my-2'>{business.address}</p></div>
-                  <p>{saves}  saves</p></div>
+                  <p>{saves}  visits </p></div>
               </div>
       
             </div>

@@ -9,7 +9,7 @@ export default function Navigate2Busines(business, saves) {
     return <div key={business.id} onClick={() => router.push(`/account/${business.id}`)}  > <div className='flex w-full'>
     <div id='business-logo' className='rounded-full bg-slate-900 w-14 h-14'></div>
     <div className='px-3'>              <p className='font-semibold'>{business.businessName}</p>
-      <p>{saves}  saves</p></div>
+      <p>{saves}  visits</p></div>
   </div>
   </div>;
 }
@@ -21,7 +21,7 @@ function newFunction(business, saves, router) {
     <div className='flex w-full'>
       <div id='business-logo' className='rounded-full bg-slate-900 w-14 h-14'></div>
       <div className='px-3'>              <p className='font-semibold'>{business.businessName}</p>
-        <p>{saves}  saves</p></div>
+        <p>{saves}  visits </p></div>
     </div>
 
   </div>)

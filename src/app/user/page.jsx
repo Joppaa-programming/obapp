@@ -80,7 +80,7 @@ export default async function Account(params) {
 
                 <div className='px-3 py-3 flex justify-center items-center flex-col w-full'>
                   <p className='font-semibold text-3xl'>{user.name}</p>
-                  <p>{saves}  saves</p></div>
+                  <p>{saves}  visits </p></div>
               </div>
               <span >
                 <ShareButton />

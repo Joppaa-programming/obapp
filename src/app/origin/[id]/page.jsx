@@ -121,7 +121,7 @@ function businessDets(origin, saves, business) {
    <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
    </span>
     <div className='px-3'>              <p className='font-semibold'>{business?.businessName}</p>
-      <p>{saves}  saves</p></div>
+      <p>{saves} visits </p></div>
   </div>
   </Link>;
 }
