@@ -8,7 +8,7 @@ const initialState = {
   error : ''
 }
 
-
+export const revalidate = 10
 const fetchOrigins = createAsyncThunk('origins/fetchOrigins', async () => {
   try {
     const { data: response } = await axios.get('/api/origins');

@@ -7,7 +7,7 @@ const initialState = {
   "status": 'idle',
   error : ''
 }
-
+export const revalidate = 10
 
 const fetchBusinesses = createAsyncThunk('businesses/fetchBusinesses', async () => {
   try {

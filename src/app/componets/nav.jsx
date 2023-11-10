@@ -8,7 +8,7 @@ import { FaArrowLeft, FaRegBookmark, FaShapes, FaBookmark, FaSearch, FaBold } fr
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBusinesses } from '../slices/business';
-export const dynamic = 'force-dynamic'
+export const revalidate = 10
 function NavBar() {
   const [navbar, setNavbar] = useState(false);
   const handleNav = () => {
