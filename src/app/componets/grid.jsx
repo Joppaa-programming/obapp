@@ -10,7 +10,7 @@ export default function Grid({ data }) {
 
   return (
 
-    <div className=" grid grid-flow-dense grid-cols-2  gap-4 px-3 sm:grid-cols-4 md:px-9 lg:px-28 lg:grid-cols-6   xl:grid-cols-8">
+    <div className=" grid grid-flow-dense grid-cols-2  gap-4 px-3 sm:grid-cols-3 md:grid-cols-3 md:px-9 lg:px-28 lg:grid-cols-4   xl:grid-cols-5">
       {data ?  data.map((gridItem) => {
         return (
           <React.Fragment  key={gridItem.id}>

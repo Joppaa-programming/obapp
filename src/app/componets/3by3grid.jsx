@@ -7,7 +7,7 @@ export default function X3Grid({ data }) {
 
   return (
 
-    <div className=" grid grid-flow-dense grid-cols-3  gap-2 px-3 sm:grid-cols-4 md:px-9 lg:px-28 lg:grid-cols-6   xl:grid-cols-8">
+    <div className=" grid grid-flow-dense grid-cols-3  gap-2 px-3 sm:grid-cols-3 md:grid-cols-4 md:px-9 lg:px-28 lg:grid-cols-4   xl:grid-cols-5">
       {data.map((gridItem) => {
         return (
           <React.Fragment key={gridItem.id}>

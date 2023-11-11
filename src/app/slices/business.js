@@ -3,7 +3,7 @@ import businesses from '../utils/business';
 import axios from 'axios';
 
 const initialState = {
-  businesses: [],
+  businesses: businesses,
   "status": 'idle',
   error : ''
 }

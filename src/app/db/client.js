@@ -120,7 +120,7 @@ export const createOrigin = async (data) => {
         const command = new PutItemCommand(input);
         //   console.log(command)
         const response = await doclient.send(command);
-        console.log(response.$metadata.httpStatusCode)
+       // console.log(response.$metadata.httpStatusCode)
         return SK;
     } catch (e) {
         console.log(e)
