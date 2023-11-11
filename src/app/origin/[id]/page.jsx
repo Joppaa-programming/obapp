@@ -102,6 +102,7 @@ function BusinessDetail(params) {
               </div>
             </div>
             <span id='description' className='px-5 mt-4 flex flex-col text-sm'>
+            <h2 className='font-semibold text-lg'>{origin.title}</h2>
               <p>{origin.content}</p>
               {/* <p className='pt-3'>{origin.services}</p> */}
             </span>
