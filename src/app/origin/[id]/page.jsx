@@ -72,16 +72,16 @@ function BusinessDetail(params) {
 
   const paramsd = params.params;
   const { id } = paramsd
-  
-//console.log(parseInt(id));
+
+  //console.log(parseInt(id));
   const origin = origins.find(origin => origin.id === id);
- // console.log(origin);
+  // console.log(origin);
   if (!origin) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )
   }
-  const business = businesses.find(business => business.SK === origin.businessId ) ;
+  const business = businesses.find(business => business.SK === origin.businessId);
   // const businessName = business.businessName;
   const saves = nFormatter(business?.saves, 1);
   return (
@@ -102,7 +102,7 @@ function BusinessDetail(params) {
               </div>
             </div>
             <span id='description' className='px-5 mt-4 flex flex-col text-sm'>
-            <h2 className='font-semibold text-lg'>{origin.title}</h2>
+              <h2 className='font-semibold text-lg'>{origin.title}</h2>
               <p>{origin.content}</p>
               {/* <p className='pt-3'>{origin.services}</p> */}
             </span>
@@ -119,8 +119,8 @@ function BusinessDetail(params) {
 function businessDets(origin, saves, business) {
   return <Link href={`/business/${origin.businessId}`}  > <div className='flex w-full'>
     <span className='w-12 h-12'>
-   <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
-   </span>
+      <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
+    </span>
     <div className='px-3'>              <p className='font-semibold'>{business?.businessName}</p>
       <p>{saves} visits </p></div>
   </div>
