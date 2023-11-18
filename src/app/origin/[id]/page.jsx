@@ -75,7 +75,7 @@ function BusinessDetail(params) {
 
   //console.log(parseInt(id));
   const origin = origins.find(origin => origin.id === id);
-  // console.log(origin);
+  // console.log(ori gin);
   if (!origin) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
