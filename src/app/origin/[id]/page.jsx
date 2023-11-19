@@ -74,9 +74,9 @@ function BusinessDetail(params) {
   const { id } = paramsd
 
   //console.log(parseInt(id));
-  const origin = origins.find(origin => origin.id === id);
   // console.log(ori gin);
-  if (!origin) {
+  const origin = origins.find(origin => origin.id === id);
+  if (origins=== null) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )
@@ -121,8 +121,11 @@ function businessDets(origin, saves, business) {
     <span className='w-12 h-12'>
       <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
     </span>
-    <div className='px-3'>              <p className='font-semibold'>{business?.businessName}</p>
-      <p>{saves} visits </p></div>
+    <div className='px-3'>     
+             <p className='font-semibold'>{business?.businessName}</p>
+             <p>{business?.address} </p>
+      {/* <p>{saves} visits </p> */}
+      </div>
   </div>
   </Link>;
 }
