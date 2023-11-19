@@ -15,6 +15,7 @@ import { originSaved, originAdded } from '../../slices/savedSlice';
 import X3Grid from '@/app/componets/3by3grid';
 import CircleImages from '@/app/componets/circleImage';
 import { fetchOrigins } from '@/app/slices/originsSlice';
+import axios from 'axios';
 
 function nFormatter(num, digits) {
   const lookup = [
@@ -76,12 +77,29 @@ function BusinessDetail(params) {
   //console.log(parseInt(id));
   // console.log(ori gin);
   const origin = origins.find(origin => origin.id === id);
-  if (origins=== null) {
+  if (origins === null) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )
   }
   const business = businesses.find(business => business.SK === origin.businessId);
+
+  const countVisits = async () => {
+    router.push(`/business/${origin.businessId}`)
+    const id = origin.businessId
+    //console.log('id'+id);
+    try {
+      const { data: response } = await axios.put('/api/visits', {
+          id
+      });
+     // console.log(response);
+      // Process the response
+  } catch (error) {
+      console.error('Error:', error.message);
+      console.error('Error details:', error.response.data);
+  }
+      
+  }
   // const businessName = business.businessName;
   const saves = nFormatter(business?.saves, 1);
   return (
@@ -96,8 +114,8 @@ function BusinessDetail(params) {
           <div id='origin-infor' className='flex flex-col p-3' >
             <div className='flex justify-between   w-auto  py-1' id='origin-card'>
               {/* <Navigate2Busines origin={(origin)} saves={(saves)}/> */}
-              {businessDets(origin, saves, business)}
-              <div onClick={() => router.push(`/business/${origin.businessId}`)}>
+              {businessDets(origin, saves, business,countVisits)}
+              <div onClick={() =>  countVisits()}>
                 <Button />
               </div>
             </div>
@@ -116,18 +134,18 @@ function BusinessDetail(params) {
     </div>
   );
 };
-function businessDets(origin, saves, business) {
-  return <Link href={`/business/${origin.businessId}`}  > <div className='flex w-full'>
+function businessDets(origin, saves, business,countVisits) {
+  return <div onClick={()=>  countVisits()} > <div className='flex w-full'>
     <span className='w-12 h-12'>
       <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
     </span>
-    <div className='px-3'>     
-             <p className='font-semibold'>{business?.businessName}</p>
-             <p>{business?.address} </p>
+    <div className='px-3'>
+      <p className='font-semibold'>{business?.businessName}</p>
+      <p>{business?.address} </p>
       {/* <p>{saves} visits </p> */}
-      </div>
+    </div>
   </div>
-  </Link>;
+  </div>;
 }
 export default BusinessDetail;
 
