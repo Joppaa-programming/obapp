@@ -20,9 +20,11 @@ export default function Home() {
   const origins = useSelector(state => state.origins.origins);
   return (
     
-    <>
+    <div >
+
+    <Hero/>
       <Grid data={origins} />
-    </>
+    </div>
 
   );
 }

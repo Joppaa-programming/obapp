@@ -4,57 +4,58 @@ import ReactPlayer from 'react-player'
 import Link from 'next/link';
 import { useState } from 'react';
 import Slider from './slider';
-
+import Grid from './grid';
+import origins from '@/app/utils/origins';
+import React from 'react';
+import InfoTab from './tabs';
 
 
 export default function Hero() {
-    return (
-    <div className='mt-10'>
-    <div className="hero">
-        <div className=''>
-            <video autoPlay muted loop className='hero-video'>
-            <source src="https://res.cloudinary.com/digital-cats/video/upload/v1680749089/DigitalEthics/blue_and_cream_creative_opener_video__1_l6l1qk.mp4" />
-                {/* <source src="https://makeagency.co.uk/wp-content/uploads/2023/01/MAKE-SHOWREEL-PREVIEW.mp4" /> */}
-            </video>
+  return (
+    <div className="landing-page mb-5">
+      <section className="hero h-screen bg-primary-dark flex flex-col relative items-center justify-center">
+        <div className="hero-image  ">
+          <Image
+            src="/diversegroup.jpg"
+            alt="A diverse group of people smiling and laughing together"
+            fill={true}
+            style={{ objectFit: "cover" }} priority={true}
+          />
         </div>
-        {/* overlay */}
-        <div className='opacity-60 w-full h-full bg-black'>
-       
-        <div className="container hero-content  mx-auto flex absolute flex-col items-center py-12 sm:py-24">
-            <div className="w-full mt-6 lg:flex justify-center items-center flex-col  mb-5 sm:mb-10">
-                <span className='text-5xl sm:text-6xl md:text-6xl lg:text-9xl  text-center  outline-text font-black'>
-                    <h1 className=" xl:text-9xl lg:text-8xl">
-                    Marketing ally
-                    </h1>
-                    <h1 className="xl:text-9xl lg:text-8xl" >
-                        WITH A PASSION
-                    </h1>
-                </span><span className="text-white">
-                    <h1 className=" text-center font-black xl:text-9xl lg:text-8xl" >
-                        FOR MARKETING
-                    </h1></span>
-            </div>
-            <div className="w-full flex mt-2 justify-center items-center">
-                <span className=''> 
-                <a href="#contactus" >
-                <button className=" transition duration-150 ease-in-out lg:text-xl lg:font-bold   text-lime-400 px-4 sm:px-10 border-4 border-lime-400 py-2 sm:py-4 text-sm"> Get In Touch</button>
-               </a>
-               <a href="#services" className='mb-3'>
-                <button className="ml-4 transition duration-150 ease-in-out  lg:text-xl lg:font-bold  text-white px-4 sm:px-10 border-4 border-white py-2 sm:py-4 text-sm">About Us</button>
-               </a> {/* <button className="ml-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 bg-transparent transition duration-150 ease-in-out hover:border-green-600 lg:text-xl lg:font-bold  hover:text-green-600 rounded border border-green-700 text-green-700 px-4 sm:px-10 py-2 sm:py-4 text-sm">About Us</button> */}
-            </span>
-            </div>
+        <span className='absolute flex flex-col p-5'>
+          <h1 className=" text-6xl font-bold text-white">Originally </h1> <h1 className=" text-6xl font-bold text-white">Black</h1>
+          <p className="text-3xl text-white">Embark on a Journey of Discovery and Empowerment</p>
+        </span>
+      </section>
 
-            {/* logos scroll */}
-            
-            <div>
-            <Slider/>
-            </div>
+      <section className=" h-screen flex flex-col pt-3 pb-8 mb-18 items-center justify-evenly">
+        <div className=' flex flex-col px-4 text-center items-center'>
+          <h2 className=" text-5xl font-bold  text-black pb-5">Uncover the Brilliance of Black Entrepreneurs</h2>
+          <p className="text-gray-700 w-auto px-5 lg:w-1/2">Originally.Black is more than an app; it's a movement that connects you with the vibrant tapestry of Black Entrepreneurs that enrich our communities.</p></div>
+        <div className=" flex items-center  flex-row overflow-x-auto no-scrollbar ">
+          <InfoTab src={"/soulfood.jpg"} alt={"A bowl of delicious soul food"} title={"Discover Hidden Gems"} infor={"Find authentic cuisine, unique fashion, and more."} />
+          <InfoTab src={"/shopphone.jpg"} alt={"A person browsing a smartphone"} title={"Unlock Exclusive Coupons"} infor={"Discover a treasure trove of exclusive coupons and deals right on O.B"} />
+          <InfoTab src={"/smartphoneguy2.jpg"} alt={"A laptop screen displaying a thriving online store"} title={"Empower all Entrepreneurs"} infor={"Support Black business owners and their success"} />
+          <InfoTab src={"/smartpeopls.jpg"} alt={"A group of Black entrepreneurs talking and laughing"} title={"Amplify Black Voices"} infor={"Celebrate the rich heritage behind each business."} />
+          <InfoTab src={"/charity.jpg"} alt={"man tending a farm in the caribbean"} title={"Charity and Faith "} infor={"Invest in the economic empowerment of Black communities."} />
+
         </div>
+        <div className="flex flex-col gap-1 pt-3  items-center justify-center">
+          <h2>Are you an Entreprenuer ? Showcase Your Excellence</h2>
+          <Link className='cursor-pointer  hover:text-purple-500' href="https://business-brown-tau.vercel.app/">
+            <button className="button">Join Originally.Black</button>
+          </Link>
         </div>
+      </section>
+      {/* <section className="flex flex-col  items-center justify-center">
+        <h2>Are you an Entreprenuer ? Showcase Your Excellence</h2>
+        <Link href="/download">
+          <button className="button">Join Originally.Black</button>
+        </Link>
+      </section> */}
     </div>
-    </div>
-    )
 
-
+  )
 }
+
+
