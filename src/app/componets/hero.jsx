@@ -32,7 +32,7 @@ export default function Hero() {
         <div className=' flex flex-col px-4 text-center items-center'>
           <h2 className=" text-5xl font-bold  text-black pb-5">Uncover the Brilliance of Black Entrepreneurs</h2>
           <p className="text-gray-700 w-auto px-5 lg:w-1/2">Originally.Black is more than an app; it's a movement that connects you with the vibrant tapestry of Black Entrepreneurs that enrich our communities.</p></div>
-        <div className=" flex items-center  flex-row overflow-x-auto no-scrollbar ">
+        <div className=" flex items-center  flex-row overflow-x-auto overflow-y-hidden no-scrollbar ">
           <InfoTab src={"/soulfood.jpg"} alt={"A bowl of delicious soul food"} title={"Discover Hidden Gems"} infor={"Find authentic cuisine, unique fashion, and more."} />
           <InfoTab src={"/shopphone.jpg"} alt={"A person browsing a smartphone"} title={"Unlock Exclusive Coupons"} infor={"Discover a treasure trove of exclusive coupons and deals right on O.B"} />
           <InfoTab src={"/smartphoneguy2.jpg"} alt={"A laptop screen displaying a thriving online store"} title={"Empower all Entrepreneurs"} infor={"Support Black business owners and their success"} />
