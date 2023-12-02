@@ -16,7 +16,7 @@ export default function Hero() {
       <section className="hero h-screen bg-primary-dark flex flex-col relative items-center justify-center">
         <div className="hero-image  ">
           <Image
-            src="/diversegroup.jpg"
+            src="/diversegroup1.jpg"
             alt="A diverse group of people smiling and laughing together"
             fill={true}
             style={{ objectFit: "cover" }} priority={true}
