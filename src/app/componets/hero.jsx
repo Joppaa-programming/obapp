@@ -12,7 +12,7 @@ import InfoTab from './tabs';
 
 export default function Hero() {
   return (
-    <div className="landing-page mb-5">
+    <div className="landing-page mb-14">
       <section className="hero h-screen bg-primary-dark flex flex-col relative items-center justify-center">
         <div className="hero-image  ">
           <Image
@@ -47,6 +47,7 @@ export default function Hero() {
           </Link>
         </div>
       </section>
+
       {/* <section className="flex flex-col  items-center justify-center">
         <h2>Are you an Entreprenuer ? Showcase Your Excellence</h2>
         <Link href="/download">

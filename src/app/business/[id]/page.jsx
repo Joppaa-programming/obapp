@@ -104,7 +104,7 @@ const modifiedString = inputString.replace('%40', '@');
 
         </div>
         <div className='mt-10 pt-3 border-t-2 flex flex-col justify-center items-center '>
-          <div className='pb-2 font-medium'> Originals </div>
+          <div className='pb-2 font-medium'> Origins </div>
           <Grid data={gridData} />
         </div>
       </div>

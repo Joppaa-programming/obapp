@@ -127,7 +127,7 @@ function BusinessDetail(params) {
           </div>
         </div>
         <div className='mt-10 pt-3 border-t-2 flex flex-col justify-center items-center '>
-          <div className='pb-2'> More like this </div>
+          <div className='pb-2'> More Origins </div>
           <Grid key={"origingrid"} data={origins} />
         </div>
       </div>
