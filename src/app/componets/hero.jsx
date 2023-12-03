@@ -40,9 +40,9 @@ export default function Hero() {
           <InfoTab src={"/charity.jpg"} alt={"man tending a farm in the caribbean"} title={"Charity and Faith "} infor={"Invest in the economic empowerment of Black communities."} />
 
         </div>
-        <div className="flex flex-col gap-1 pt-3  items-center justify-center">
-          <h2>Are you an Entreprenuer ? Showcase Your Excellence</h2>
-          <Link className='cursor-pointer  hover:text-purple-500' href="https://business-brown-tau.vercel.app/">
+        <div className="flex flex-col gap-1 pt-3 mt-5 items-center justify-center">
+          <h2 className='py-4'>Are you an Entreprenuer ? Showcase Your Excellence</h2>
+          <Link className='cursor-pointer  hover:text-purple-500' href="https://business.originally.black">
             <button className="button">Join Originally.Black</button>
           </Link>
         </div>
