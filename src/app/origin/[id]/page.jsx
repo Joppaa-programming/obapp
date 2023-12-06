@@ -102,8 +102,8 @@ function BusinessDetail(params) {
         {/* <TopBar /> */}
         <div id='origin-grid' className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:grid-flow-dense'>
           <div id='image-box' className={custStyles} >
-          <Image  fill={true}
-            style={{ objectFit: "fill" , }}  src={origin.image} alt={origin.title} className="w-full h-full   hover:opacity-60 transition duration-300" 
+          <Image className="w-full h-full   hover:opacity-60 transition duration-300"  src={origin.image} alt={origin.title} fill={true}
+            style={{ objectFit: "fill" }}  
           
             />
           </div>
@@ -130,7 +130,7 @@ function BusinessDetail(params) {
     </div>
   );
 };
-function businessDets(origin, saves, business,countVisits) {
+function businessDets( business,countVisits) {
   return <div onClick={()=>  countVisits()} > <div className='flex w-full'>
     <span className='w-12 h-12'>
       <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />

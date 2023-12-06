@@ -3,22 +3,22 @@
 const withPWA = require('next-pwa');
 
 const nextConfig = {
-  images:{
-  domains: ['makeagency.co.uk','res.cloudinary.com','www.nicepng.com','10619-2.s.cdn12.com','originallyblackbucket.s3.eu-west-1.amazonaws.com', 'export-download.canva.com'],
-  deviceSizes: [380, 500, 668, 1024, 1600],
-  imageSizes: [16, 32, 48, 64, 96],
-  // remotePatterns: [
-  //   {
-  //     protocol: 'https',
-  //     hostname: 'res.cloudinary.com',
-  //     port: '',
-  //     pathname: '/account123/**',
-  //   },
-  // ],
-},
-experimental: {
-  appDir: true,
-},
+  images: {
+    domains: ['makeagency.co.uk', 'res.cloudinary.com', 'www.nicepng.com', '10619-2.s.cdn12.com', 'originallyblackbucket.s3.eu-west-1.amazonaws.com', 'export-download.canva.com'],
+    deviceSizes: [380, 500, 668, 1024, 1600],
+    imageSizes: [16, 32, 48, 64, 96],
+    // remotePatterns: [
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'res.cloudinary.com',
+    //     port: '',
+    //     pathname: '/account123/**',
+    //   },
+    // ],
+  },
+  experimental: {
+    appDir: true,
+  },
 
 }
 module.exports = withPWA({
