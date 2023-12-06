@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { originSaved } from '../../slices/savedSlice';
 import CircleImages from '@/app/componets/circleImage';
 import axios from 'axios';
-
+import Image from 'next/image';
 function nFormatter(num, digits) {
   const lookup = [
     { value: 1, symbol: "" },
@@ -70,13 +70,13 @@ function BusinessDetail(params) {
   //console.log(parseInt(id));
   // console.log(ori gin);
   const origin = origins.find(origin => origin.id === id);
-  if (origins === null) {
+  if (origin === null) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )
   }
-  const business = businesses.find(business => business.SK === origin.businessId);
-
+  const business = businesses.find(business => business.SK === origin?.businessId);
+ const custStyles = origin.isPortrait ? 'shadow-md px-1 w-full h-[66vh] relative' : 'shadow-md px-1 w-full h-[45vh] relative';
   const countVisits = async () => {
     router.push(`/business/${origin.businessId}`)
     const id = origin.businessId
@@ -100,9 +100,12 @@ function BusinessDetail(params) {
     <div id='originPage' className=" lg:max-w-5xl " >
       <div>
         {/* <TopBar /> */}
-        <div id='origin-grid' className='grid grid-cols-1 md:grid-cols-2 md:grid-flow-dense'>
-          <div id='image-box' className="shadow-md px-1 " >
-            <img src={origin.image} alt={origin.title} className="w-full h-full  object-cover  hover:opacity-60 transition duration-300" />
+        <div id='origin-grid' className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:grid-flow-dense'>
+          <div id='image-box' className={custStyles} >
+          <Image  fill={true}
+            style={{ objectFit: "fill" , }}  src={origin.image} alt={origin.title} className="w-full h-full   hover:opacity-60 transition duration-300" 
+          
+            />
           </div>
           <div id='origin-infor' className='flex flex-col p-3' >
             <div className='flex justify-between   w-auto  py-1' id='origin-card'>
