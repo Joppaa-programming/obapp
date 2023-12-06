@@ -46,7 +46,7 @@ dispatch(fetchBusinesses());
   return (
     <>
       <div className='' >
-        <nav className=" px-4 py-2.5 bg-white  w-full fixed   z-20 bottom-0  border-b  md:rounded-none border-purple-900 shadow-lg">
+        <nav className=" px-4 py-2.5 pb-[1.625rem] bg-white  w-full fixed   z-20 bottom-0  border-b  md:rounded-none border-purple-900 shadow-lg">
           <div className="container max-w-5xl flex flex-wrap items-center justify-center mx-auto">
         
             <Link href="/" className="flex mx-9  md:mx-16 lg:mx-28 items-center">

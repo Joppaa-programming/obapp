@@ -17,9 +17,9 @@ export default function Hero() {
             style={{ objectFit: "cover" }} priority={true} quality={100}
           />
         </div>
-        <span className='absolute top-1/2  px-3 flex flex-col p-5'>
-          <h1 className=" text-[74px]   tracking-tighter leading-none font-bold text-white">{`Originally.\nBlack`}</h1>
-          <p className="text-3xl mt-2 tracking-tight leading-none  shadow-md text-white">Embark on a Journey of Discovery and Empowerment</p>
+        <span className='absolute top-[55%]  px-3 flex flex-col p-5'>
+          <h1 className=" text-6xl   tracking-tighter leading-none font-bold text-white">{`Originally.\nBlack`}</h1>
+          <p className="text-3xl mt-4 tracking-tight leading-none  shadow-md text-white">Embark on a Journey of Discovery and Empowerment</p>
         </span>
       </section>
 
