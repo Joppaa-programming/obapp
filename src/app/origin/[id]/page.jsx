@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import Grid from '@/app/componets/grid';
 import Button from '@/app/componets/button';
 //import origins from '@/app/utils/origins';
-import { useDispatch, useSelector } from 'react-redux';
-import { originSaved } from '../../slices/savedSlice';
+import { useSelector } from 'react-redux';
+//import { originSaved } from '../../slices/savedSlice';
 import CircleImages from '@/app/componets/circleImage';
 import axios from 'axios';
 import Image from 'next/image';
@@ -28,41 +28,11 @@ function nFormatter(num, digits) {
 }
 
 
-function BusinessDetail(params) {
+function OriginDetail(params) {
   const router = useRouter();
 
- // const saver = useSelector(state => state.saved.saved);
   const origins = useSelector(state => state.origins.origins);
   const businesses = useSelector(state => state.businesses.businesses);
-  //const dispatch = useDispatch();
-  // function handleSave(origin) {
-  //   console.log("origin", " " + origin);
-  //   const savedAt = new Date().toISOString();
-  //   const userId = 123
-  //   const origin2Save = {
-  //     id: origin.id,
-  //     isPortrait: origin.isPortrait,
-  //     image: origin.image,
-  //     savedAt,
-  //   };
-  //   const item2Save = {
-  //     id: userId,
-  //     origins: [origin2Save],
-  //     createdAt: savedAt,
-  //     updatedAt: savedAt,
-  //     userId: userId
-  //   };
-
-  //   if (saver.length > 0) {
-  //     dispatch(originSaved(item2Save));
-  //     // dispatch(originAdded(origin2Save));
-
-  //     return
-  //   }
-  //   dispatch(originSaved(item2Save));
-  //   // saved.push(item2Save);
-  //   return;
-  // }
 
   const paramsd = params.params;
   const { id } = paramsd
@@ -76,22 +46,22 @@ function BusinessDetail(params) {
     )
   }
   const business = businesses.find(business => business.SK === origin?.businessId);
- const custStyles = origin.isPortrait ? 'shadow-md px-1 w-full h-[66vh] relative' : 'shadow-md px-1 w-full h-[45vh] relative';
+  const custStyles = origin.isPortrait ? ' w-auto h-[66vh] relative' : ' w-auto h-[45vh] relative';
   const countVisits = async () => {
     router.push(`/business/${origin.businessId}`)
     const id = origin.businessId
     //console.log('id'+id);
     try {
       const { data: response } = await axios.put('/api/visits', {
-          id
+        id
       });
-     // console.log(response);
+      // console.log(response);
       // Process the response
-  } catch (error) {
+    } catch (error) {
       console.error('Error:', error.message);
       console.error('Error details:', error.response.data);
-  }
-      
+    }
+
   }
   // const businessName = business.businessName;
   const saves = nFormatter(business?.saves, 1);
@@ -100,18 +70,22 @@ function BusinessDetail(params) {
     <div id='originPage' className=" lg:max-w-5xl " >
       <div>
         {/* <TopBar /> */}
-        <div id='origin-grid' className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:grid-flow-dense'>
+        <div id='origin-grid' className='px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:grid-flow-dense'>
           <div id='image-box' className={custStyles} >
-          <Image className="w-full h-full   hover:opacity-60 transition duration-300"  src={origin.image} alt={origin.title} fill={true}
-            style={{ objectFit: "fill" }}  
-          
-            />
+
+            {origin.isPortrait ? <Image className="rounded-sm shadow-md  h-full  " src={origin.image} alt={origin.title} width={1440} height={1920}
+              style={{ objectFit: "contain" }}
+
+            /> : <Image className=" rounded-sm shadow-md  h-full " src={origin.image} alt={origin.title} width={1440} height={1920}
+              style={{ objectFit: "contain", }}
+
+            />}
           </div>
           <div id='origin-infor' className='flex flex-col p-3' >
             <div className='flex justify-between   w-auto  py-1' id='origin-card'>
               {/* <Navigate2Busines origin={(origin)} saves={(saves)}/> */}
-              {businessDets(origin, saves, business,countVisits)}
-              <div onClick={() =>  countVisits()}>
+              {businessDets(origin, saves, business, countVisits)}
+              <div >
                 <Button />
               </div>
             </div>
@@ -130,8 +104,8 @@ function BusinessDetail(params) {
     </div>
   );
 };
-function businessDets( business,countVisits) {
-  return <div onClick={()=>  countVisits()} > <div className='flex w-full'>
+function businessDets(business, countVisits) {
+  return <div onClick={() => countVisits()} > <div className='flex w-full'>
     <span className='w-12 h-12'>
       <CircleImages w={12} src={business?.logo} alt={business?.businessName} id={'business-logo'} />
     </span>
@@ -143,6 +117,6 @@ function businessDets( business,countVisits) {
   </div>
   </div>;
 }
-export default BusinessDetail;
+export default OriginDetail;
 
 
