@@ -1,20 +1,13 @@
 "use client"
 import React from 'react'
-import Link from 'next/link';
-import { useRouter, usePathname, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 //import businesses from '@/app/utils/business';
-import { IconContext } from "react-icons";
-import { FaAngleLeft, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
 import Grid from '@/app/componets/grid';
 import Button from '@/app/componets/button';
-import Navigate2Busines from '@/app/componets/navigate2busines';
 //import origins from '@/app/utils/origins';
-import TopBar from '@/app/componets/topbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { originSaved, originAdded } from '../../slices/savedSlice';
-import X3Grid from '@/app/componets/3by3grid';
+import { originSaved } from '../../slices/savedSlice';
 import CircleImages from '@/app/componets/circleImage';
-import { fetchOrigins } from '@/app/slices/originsSlice';
 import axios from 'axios';
 
 function nFormatter(num, digits) {
@@ -38,38 +31,38 @@ function nFormatter(num, digits) {
 function BusinessDetail(params) {
   const router = useRouter();
 
-  const saver = useSelector(state => state.saved.saved);
+ // const saver = useSelector(state => state.saved.saved);
   const origins = useSelector(state => state.origins.origins);
   const businesses = useSelector(state => state.businesses.businesses);
-  const dispatch = useDispatch();
-  function handleSave(origin) {
-    console.log("origin", " " + origin);
-    const savedAt = new Date().toISOString();
-    const userId = 123
-    const origin2Save = {
-      id: origin.id,
-      isPortrait: origin.isPortrait,
-      image: origin.image,
-      savedAt,
-    };
-    const item2Save = {
-      id: userId,
-      origins: [origin2Save],
-      createdAt: savedAt,
-      updatedAt: savedAt,
-      userId: userId
-    };
+  //const dispatch = useDispatch();
+  // function handleSave(origin) {
+  //   console.log("origin", " " + origin);
+  //   const savedAt = new Date().toISOString();
+  //   const userId = 123
+  //   const origin2Save = {
+  //     id: origin.id,
+  //     isPortrait: origin.isPortrait,
+  //     image: origin.image,
+  //     savedAt,
+  //   };
+  //   const item2Save = {
+  //     id: userId,
+  //     origins: [origin2Save],
+  //     createdAt: savedAt,
+  //     updatedAt: savedAt,
+  //     userId: userId
+  //   };
 
-    if (saver.length > 0) {
-      dispatch(originSaved(item2Save));
-      // dispatch(originAdded(origin2Save));
+  //   if (saver.length > 0) {
+  //     dispatch(originSaved(item2Save));
+  //     // dispatch(originAdded(origin2Save));
 
-      return
-    }
-    dispatch(originSaved(item2Save));
-    // saved.push(item2Save);
-    return;
-  }
+  //     return
+  //   }
+  //   dispatch(originSaved(item2Save));
+  //   // saved.push(item2Save);
+  //   return;
+  // }
 
   const paramsd = params.params;
   const { id } = paramsd

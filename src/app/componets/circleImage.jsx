@@ -1,4 +1,4 @@
-import Error from 'next/error'
+
 import Image from 'next/image'
 import React from 'react'
 

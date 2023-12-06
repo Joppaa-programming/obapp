@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
-import { useRouter, usePathname, useParams } from 'next/navigation';
-import data from '@/app/utils/data';
-import { IconContext } from "react-icons";
-import { FaAngleLeft,FaSearch, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
+//import Link from 'next/link';
+import { useRouter} from 'next/navigation';
+//import data from '@/app/utils/data';
+//import { IconContext } from "react-icons";
+import { FaSearch } from 'react-icons/fa';
 
 export default function TopSearch({setSearch}) {
     let router = useRouter();

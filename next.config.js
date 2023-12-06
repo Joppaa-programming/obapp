@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const withPWA = require('next-pwa');
+
 const nextConfig = {
   images:{
   domains: ['makeagency.co.uk','res.cloudinary.com','www.nicepng.com','10619-2.s.cdn12.com','originallyblackbucket.s3.eu-west-1.amazonaws.com' ],
@@ -18,5 +21,10 @@ experimental: {
 },
 
 }
-
-module.exports = nextConfig
+module.exports = withPWA({
+  dest: 'public',
+  cacheOnFrontEndNav: true,
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+})(nextConfig);

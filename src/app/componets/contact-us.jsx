@@ -1,8 +1,8 @@
 import { useState } from 'react';
 // import { useCollection } from 'react-firebase-hooks/firestore';
-import { collection, doc, FieldValue, setDoc } from 'firebase/firestore';
+//import { collection, doc, FieldValue, setDoc } from 'firebase/firestore';
 
-import db from '../utils/firebase';
+//import db from '../utils/firebase';
 import addData from '../utils/firebase';
 
 

@@ -1,17 +1,24 @@
 
 import React from 'react';
-// import { Provider } from "react-redux";
+
 import Contents from './componets/content'
 import NavBar from './componets/nav'
 import './globals.css'
 import Providers from './provider';
-import Modal from './componets/modal';
+
 import { Analytics } from '@vercel/analytics/react';
 
 
 export const metadata = {
-  title: 'OriginallyBlac',
-  description: 'OriginallyBlac',
+  title: 'Originally.Black',
+  description: 'Connect you with the vibrant tapestry of Black Entrepreneurs that enrich your communities.',
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: 'Originally.Black'
+    // startUpImage: [],
+  },
 }
 
 export default function RootLayout({ children }) {

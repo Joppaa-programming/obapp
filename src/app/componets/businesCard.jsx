@@ -1,14 +1,14 @@
 
 import React from 'react'
-import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
-import { FaRegBookmark,FaBookmark } from 'react-icons/fa';
+
 import { useDispatch,  useSelector} from 'react-redux';
 import { originSaved,originAdded } from '../slices/savedSlice';
 
 
 const saved = [];
-const BusinessCard = ({ origin }) => {
+const OriginCard = ({ origin }) => {
  const saver= useSelector(state => state.saved.saved);
   const dispatch =  useDispatch();
  function handleSave(origin) {
@@ -53,4 +53,4 @@ const BusinessCard = ({ origin }) => {
   );
 };
 
-export default BusinessCard;
+export default OriginCard;

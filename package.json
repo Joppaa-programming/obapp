@@ -25,6 +25,7 @@
     "mongoose": "^7.0.3",
     "next": "13.3",
     "next-hubspot": "^1.1.6",
+    "next-pwa": "^5.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",

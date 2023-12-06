@@ -1,17 +1,17 @@
 'use client';
 import { useForm } from "react-hook-form";
-import { useEffect } from 'react'
+//import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import Error from '../components/Error'
 import { loginUser } from '../slices/auth/auth'
-import { useRouter } from 'next/navigation'
+//import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 import CustomButton from "./customButton";
 
 export default function Login({ onToggle }) {
-    const { register, handleSubmit,  setError } = useForm();
+    const { register, handleSubmit, } = useForm();
 
-const {loading, userInfo, error, success} = useSelector((state)=> state.auth);
+const {loading,  error,} = useSelector((state)=> state.auth);
 
     const dispatch = useDispatch();
     const onSubmit = data => {

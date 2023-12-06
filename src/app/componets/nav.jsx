@@ -1,21 +1,19 @@
 "use client"; // th
-import Image from 'next/image';
+//import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { fetchOrigins } from '../slices/originsSlice';
-import { FaArrowLeft, FaRegBookmark, FaShapes, FaBookmark, FaSearch, FaBold } from 'react-icons/fa';
+import {  FaShapes,  FaSearch, FaBold } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBusinesses } from '../slices/business';
 export const dynamic = "force-dynamic"
 function NavBar() {
   const [navbar, setNavbar] = useState(false);
-  const handleNav = () => {
-    setNavbar(!navbar);
-  }
-  const [businesses, setBusinesses] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+ 
+ // const [businesses, setBusinesses] = useState([]);
+  const [ setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
   let router = useRouter();
@@ -28,22 +26,22 @@ useEffect(() =>{
 dispatch(fetchOrigins());
 dispatch(fetchBusinesses());
 }, [])
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  // const handleSearchChange = (event) => {
+  //   setSearchTerm(event.target.value);
+  // };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-  function Category(props) {
-    return (<button
-      className={`bg-transparent rounded-none text-white py-2 px-4 border-b-2 ${selectedCategory === props.category ? 'border-white' : 'border-transparent'} hover:border-white transition duration-300`}
-      onClick={() => handleCategoryClick(props.category)}
-    >
-      {props.category}
-    </button>
-    );
-  }
+  // function Category(props) {
+  //   return (<button
+  //     className={`bg-transparent rounded-none text-white py-2 px-4 border-b-2 ${selectedCategory === props.category ? 'border-white' : 'border-transparent'} hover:border-white transition duration-300`}
+  //     onClick={() => handleCategoryClick(props.category)}
+  //   >
+  //     {props.category}
+  //   </button>
+  //   );
+  // }
 
   return (
     <>
@@ -86,6 +84,6 @@ dispatch(fetchBusinesses());
 
 export default NavBar;
 
-function menuLines() {
-  return <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>;
-}
+// function menuLines() {
+//   return <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>;
+// }

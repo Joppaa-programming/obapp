@@ -11,7 +11,7 @@ export default function InfoTab({src,alt,title,infor}) {
         style={{ objectFit: "cover", borderRadius: '5px', width: "260px", height: "460px" }} />
   
       <span className='absolute bottom-20 bg-slate-50'>
-        <h3 className="text-xl font-bold text-black">{title}</h3>
+        <h3 className="text-xl font-bold tracking-tight text-black">{title}</h3>
         <p className="text-gray-700">{infor}</p>
       </span>
     </div>;

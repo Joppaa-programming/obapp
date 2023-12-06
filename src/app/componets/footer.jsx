@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import addData from '../utils/firebase';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import Link from 'next/link';
+//import Link from 'next/link';
 
 export default function Footer() {
     const [name, setName] = useState('');

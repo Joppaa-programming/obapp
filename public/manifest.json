@@ -1,0 +1,21 @@
+{
+    "name": "Originally.Black",
+    "short_name": "O.B",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#faf3dd",
+    "orientation": "portrait",
+    "theme_color": "#7040C9",
+    "icons": [
+        {
+            "src": "/icons/icon192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
