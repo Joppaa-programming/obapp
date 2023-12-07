@@ -24,7 +24,7 @@ export default function Grid({ data }) {
           </div>
         );
       })
-        : <div> hi</div>}
+        : <div> Carlos Tamale</div>}
     </div>
   );
 }
