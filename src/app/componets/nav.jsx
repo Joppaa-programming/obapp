@@ -49,15 +49,15 @@ dispatch(fetchBusinesses());
         <nav className=" px-4 py-2.5 pb-[1.625rem] bg-white  w-full fixed   z-20 bottom-0  border-b  md:rounded-none border-purple-900 shadow-lg">
           <div className="container max-w-5xl flex flex-wrap items-center justify-center mx-auto">
         
-            <Link href="/" className="flex mx-9  md:mx-16 lg:mx-28 items-center">
+            <Link href="/" className="flex px-9  md:px-16 lg:px-28 items-center">
               <span className="self-center text-2xl font-black italic whitespace-nowrap text-slate-800"> <FaShapes /></span>
             </Link>
-            <Link href="/search" className="flex mx-9 md:mx-16 lg:mx-28 items-center">
+            <Link href="/search" className="flex px-9  md:px-16 lg:px-28 items-center">
               <div className=' text-slate-800 text-2xl'>
                 <FaSearch />
               </div>
             </Link>
-            <div onClick={handleBackClick} className="flex mx-9 cursor-pointer  md:mx-16 lg:mx-28 items-center">
+            <div onClick={handleBackClick} className="cursor-pointer  flex px-9  md:px-16 lg:px-28 items-center">
               <div className='text-2xl px-5 text-slate-800 '> <FaBold /></div>
             </div>
 

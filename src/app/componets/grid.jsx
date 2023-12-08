@@ -10,18 +10,18 @@ export default function Grid({ data }) {
 
   return (
 
-    <div className=" grid grid-flow-dense grid-cols-2  gap-4  sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4   xl:grid-cols-4">
+    <div className=" auto-rows-[195px] auto-cols-[195px] grid grid-cols-2  w-full sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4   xl:grid-cols-4">
       {data ? data.map((gridItem) => {
         return (
-          < div key={gridItem.id} >
-            {/* {console.log(gridItem.id)} */}
 
-            <div onClick={() => router.push(`/origin/${gridItem.id}`)} className={`  ${gridItem.isAd ? 'col-span-3  row-span-3 sm:col-span-2  sm:row-span-2' : gridItem.isPortrait ? 'col-span-1 row-span-2 ' : ' col-span-1 row-span-1  '}`}>
+          <div key={gridItem.id} onClick={() => router.push(`/origin/${gridItem.id}`)} className={`p-2    ${gridItem.isAd ? 'col-span-3  row-span-3 sm:col-span-2  sm:row-span-2' : gridItem.isPortrait ? 'col-span-1 row-span-2 ' : ' col-span-1 row-span-1  '}`}>
 
-              <OriginCard origin={gridItem} />
+            
 
-            </div>
+            <OriginCard origin={gridItem} />
+
           </div>
+
         );
       })
         : <div> Carlos Tamale</div>}
