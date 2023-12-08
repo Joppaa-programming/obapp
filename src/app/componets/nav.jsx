@@ -49,7 +49,7 @@ dispatch(fetchBusinesses());
         <nav className=" px-4 py-2.5 pb-[1.625rem] bg-white  w-full fixed   z-20 bottom-0  border-b  md:rounded-none border-purple-900 shadow-lg">
           <div className="container max-w-5xl flex flex-wrap items-center justify-center mx-auto">
         
-            <Link href="/" className="flex px-9  md:px-16 lg:px-28 items-center">
+            <Link href="/homie" className="flex px-9  md:px-16 lg:px-28 items-center">
               <span className="self-center text-2xl font-black italic whitespace-nowrap text-slate-800"> <FaShapes /></span>
             </Link>
             <Link href="/search" className="flex px-9  md:px-16 lg:px-28 items-center">

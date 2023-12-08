@@ -44,18 +44,18 @@ const OriginCard = ({ origin }) => {
     <>
       {/* <div className='text-2xl px-2 text-white absolute z-10  hover:text-purple-800' > <div onClick={()=>handleSave(origin)}><FaBookmark /></div></div> */}
       <div onClick={() => router.push(`/origin/${origin.id}`)} className={`h-full relative     `} id={origin.id}>
-        {/* 
+   
 
- <img src={origin.image} alt={origin.id} className="w-full h-full object-cover  rounded-3xl hover:opacity-60 transition duration-300" />
+ <img src={origin.image} alt={origin.id} className="w-full h-full object-fill shadow-md  rounded-lg hover:opacity-60 transition duration-300" />
 
-*/}
+
         {/* <Link href={`/origin/${origin.id}`}> */}
-        <Image className='rounded-md shadow-md'
+        {/* <Image className='rounded-md shadow-md'
           src={origin.image}
           style={{ objectFit: "fill" }}
         fill={true}
           alt={origin.id}
-        />
+        /> */}
         {/* </Link> */}
       </div>
     </>
