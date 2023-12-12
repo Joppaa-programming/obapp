@@ -46,7 +46,7 @@ const OriginCard = ({ origin }) => {
       <div onClick={() => router.push(`/origin/${origin.id}`)} className={`h-full relative     `} id={origin.id}>
    
 
- <img src={origin.image} alt={origin.id} className="w-full h-full object-fill shadow-md  rounded-lg hover:opacity-60 transition duration-300" />
+ <img src={origin.image} alt={origin.id} className="w-full h-full object-fill shadow-md  rounded-md hover:opacity-60 transition duration-300" />
 
 
         {/* <Link href={`/origin/${origin.id}`}> */}
