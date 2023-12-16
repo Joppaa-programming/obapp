@@ -70,7 +70,8 @@ function BusinessDetail(params) {
   //console.log(parseInt(id));
   // console.log(ori gin);
   const origin = origins.find(origin => origin.id === id);
-  if (origins === null) {
+  //console.log(origin);
+  if (origin == null) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Origin Found </div>
     )

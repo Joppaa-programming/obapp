@@ -24,7 +24,7 @@ const ContactUs = () => {
         createdAt: new Date(),
       }
       const id = Math.random(4) * 10000;
-      console.log(id);
+    
       // const id = 'digitalethics' + idNumber;
       await addData(info);
       setName('');

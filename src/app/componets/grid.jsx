@@ -10,7 +10,7 @@ export default function Grid({ data }) {
 
   return (
 
-    <div className=" auto-rows-[95px] auto-cols-[195px] grid grid-cols-2  w-full sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4   xl:grid-cols-4">
+    <div className=" auto-rows-[95px] auto-cols-[195px] sm:auto-rows-[129px] grid grid-cols-2  w-full sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4   xl:grid-cols-4">
       {data ? data.map((gridItem) => {
         return (
 

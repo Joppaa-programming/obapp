@@ -6,8 +6,7 @@ import React from 'react'
 //import origins from '@/app/utils/origins';
 //import { IconContext } from "react-icons";
 //import { FaAngleLeft, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
-import Grid from '@/app/componets/grid';
-// import TopBar from '@/app/componets/topbar';
+
 // import Button from '@/app/componets/button';
 // import { param } from 'express-validator';
 // import ShareButton from '@/app/componets/shareButton';
@@ -16,11 +15,15 @@ import Grid from '@/app/componets/grid';
 import { getGoogleMapsLink } from '@/app/helpers/minifunctions';
 import { FaMapMarker } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-async function filterById(id, data) {
+import { useRouter } from 'next/navigation';
+import Grid from '@/app/componets/grid';
+ //import TopBar from '@/app/componets/topbar';
+import ShareButton from '@/app/componets/shareButton';
+// async function filterById(id, data) {
 
-  return await data.find(x => x.id === parseInt(id));
+//   return await data.find(x => x.id === parseInt(id));
 
-}
+// }
 function filterByKey(key, data, filter) {
   const filtered = data.filter(item => item[key] === filter);
 
@@ -53,11 +56,11 @@ const modifiedString = inputString.replace('%40', '@');
   const origins = useSelector(state => state.origins.origins);
   const businesses = useSelector(state => state.businesses.businesses);
   const gridData = filterByKey("businessId", origins, parsedId);
- 
+  const router = useRouter()
 
   const business = businesses.find(business => 
     business.SK === modifiedString);
-  console.log(business);
+ // console.log(business);
   if (!business) {
     return (
       <div className="bg-white  pt-48 rounded-lg shadow-md p-4">No Business Found </div>
@@ -69,32 +72,38 @@ const modifiedString = inputString.replace('%40', '@');
   function handleClick(address){
   getGoogleMapsLink(address);
 }
-
+function handleLink(link){
+  router.push(link)
+}
   return (
 
     <div id='accountPage' className=" lg:max-w-5xl " >
       <div>
-        {/* <TopBar /> */}
+    {/* <TopBar />  */}
         <div id='business-grid' className='grid grid-cols-1 md:grid-cols-1 md:grid-flow-dense'>
 
           <div id='business-infor' className='flex items-center flex-col ' >
             <div className='flex justify-center items-center flex-col w-auto  py-1' id='business-card'>
               <div className=' flex  flex-col justify-center items-center h-full'>
-                <div id='image-box' className="shadow-md px-1 h-96  " >
-                  <img src={business.image} alt={business.name} className="w-full h-full  object-cover  " />
+                <div id='image-box' className="shadow-md px-1 w-screen  h-auto " >
+                  <img src={business.image} alt={business.name} className="w-full h-full  object-contain  " />
 
                 </div><div id='business-logo' className='rounded-full bg-slate-900  w-32 h-32 -mt-14' > <img src={business.logo} alt={business.businessName} className="w-full h-full object-cover  rounded-3xl hover:opacity-60 transition duration-300" />   </div>
               </div>
               <div className='flex justify-center items-center my-3 flex-col w-full'>
 
-                <div className='px-3 py-3 flex justify-center items-center flex-col w-full'>
+                <div className='px-3 py-3 flex justify-center text-center items-center flex-col w-full'>
                   <p className='font-semibold text-3xl'>{business.businessName}</p>
                   <div className='flex flex-row justify-start my-2 items-center hover:text-violet-600'> <FaMapMarker className='text-[12px] '/> <p onClick={() => handleClick(business.address)} className='text-[12px] px-2 my-2'>{business.address}</p></div>
-                  <p>{business.contactNumber}  </p></div>
+                  <p className=' p-2'>{business.contactNumber}  </p>
+                  {business.link? <p className='cursor-pointer p-2' onClick={() =>handleLink(business.link)}><ShareButton/></p> : ''}
+                  </div>
+                  {/* <Link href={'https://www.originally.black/'}  >
+                  <p >{business.category}  </p></Link></div> */}
               </div>
       
             </div>
-            <span id='description' className='px-7 mt-3 flex flex-col text-sm'>
+            <span id='description' className='px-7 mt-3 flex flex-col text-sm text-center'>
               <p>{business.description}</p>
               {/* <p className='pt-3'>{business.services}</p> */}
             </span>
