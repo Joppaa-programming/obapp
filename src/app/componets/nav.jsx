@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { fetchOrigins } from '../slices/originsSlice';
-import {  FaShapes,  FaSearch, FaBold } from 'react-icons/fa';
+import {  FaShapes,  FaSearch, FaBold, FaHome} from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBusinesses } from '../slices/business';
@@ -50,15 +50,17 @@ dispatch(fetchBusinesses());
           <div className="container max-w-5xl flex flex-wrap items-center justify-center mx-auto">
         
             <Link href="/homie" className="flex px-9  md:px-16 lg:px-28 items-center">
-              <span className="self-center text-2xl font-black italic whitespace-nowrap text-slate-800"> <FaShapes /></span>
+              <span className="self-center text-2xl font-black italic whitespace-nowrap text-slate-800 flex flex-col justify-center relative"> < FaShapes /><p className='text-[10px] top-[16px] absolute font-light uppercase '>home</p></span>
             </Link>
             <Link href="/search" className="flex px-9  md:px-16 lg:px-28 items-center">
-              <div className=' text-slate-800 text-2xl'>
+              <div className=' text-slate-800 text-2xl flex flex-col justify-center relative'>
                 <FaSearch />
+                <p className='text-[10px] top-[16px] absolute font-light uppercase'>search</p>
               </div>
             </Link>
             <div onClick={handleBackClick} className="cursor-pointer  flex px-9  md:px-16 lg:px-28 items-center">
-              <div className='text-2xl px-5 text-slate-800 '> <FaBold /></div>
+              <div className='text-2xl px-5 text-slate-800 flex flex-col justify-center relative'> <FaBold />  <p className='text-[10px] top-[16px] absolute font-light uppercase'>back</p></div>
+            
             </div>
 
           </div>
