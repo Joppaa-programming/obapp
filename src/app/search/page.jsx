@@ -24,7 +24,7 @@ export default function page() {
   const businessData = origins.filter((origin) => {
     return search.toLowerCase() === "" ? true : origin.businessName.toLowerCase().includes(search.toLowerCase());
   })
-  console.log(filteredData)
+  //console.log(filteredData)
   // console.log(filteredData)
   return (
     < div className='w-full px-4'>

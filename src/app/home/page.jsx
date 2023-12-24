@@ -24,27 +24,13 @@ export default function Homepage() {
   )
 }
 
-function HomeCard() {
-  return <div className="h-[50vh]  w-screen pt-4 px-2">
-    <p className='text-base px-5  uppercase'>Upcoming Events</p>
-    <div className='grid auto-cols-[50px] grid-flow-col  whitespace-no-wrap grid-rows-1 h-full  overflow-x-auto overflow-clip no-scrollbar items-center '>
 
-      {origins ? origins.map((origin) => {
-        return (
-          <div key={origin.id} className='  h-auto p-1 col-span-5'>
-            <OriginCard origin={origin} />
-
-            {/* <InfoTab src={origin.image} alt={origin.tags} title={origin.title} infor={origin.content} />  */}
-          </div>);
-      }) : <div>No Origins</div>}
-    </div>
-  </div>;
-}
 
 function HomeCard2({title,origins}) {
-  return <div className="h-[50vh]  w-screen mt-8 pt-4 px-2">
-    <p className='text-2xl px-5 font-semibold uppercase'>{title}</p>
-    <div className='grid px-4 auto-cols-[50px] grid-flow-col  whitespace-no-wrap grid-rows-1 h-full  overflow-x-auto overflow-clip items-center '>
+  return <div className="h-[50vh]  w-screen  py-[3rem] px-2 shadow-md">
+    <div className='text-[18px] px-5 py-2 font-semibold uppercase shadow-sm flex flex-row justify-between'><p>{title}</p>
+    <p className='pr-8 text-[12px] hover:underline cursor-pointer'>explore</p></div>
+    <div className='grid px-4 auto-cols-[43px] grid-flow-col  whitespace-no-wrap grid-rows-1 h-full  overflow-x-auto overscroll-none overflow-hidden items-center no-scrollbar '>
 
       {origins ? origins.map((origin) => {
         return (
