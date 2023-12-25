@@ -28,7 +28,7 @@ export default function Homepage() {
 
 function HomeCard2({title,origins}) {
   return <div className="h-[50vh]  w-screen  py-[3rem] px-2 shadow-md">
-    <div className='text-[18px] px-5 py-2 font-semibold uppercase shadow-sm flex flex-row justify-between'><p>{title}</p>
+    <div className='text-[18px] px-5 py-2 font-semibold uppercase shadow-sm flex flex-row justify-between items-center'><p>{title}</p>
     <p className='pr-8 text-[12px] hover:underline cursor-pointer'>explore</p></div>
     <div className='grid px-4 auto-cols-[43px] grid-flow-col  whitespace-no-wrap grid-rows-1 h-full  overflow-x-auto overscroll-none overflow-hidden items-center no-scrollbar '>
 
