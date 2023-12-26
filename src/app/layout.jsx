@@ -5,7 +5,7 @@ import Contents from './componets/content'
 import NavBar from './componets/nav'
 import './globals.css'
 import Providers from './provider';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from '@vercel/analytics/react';
 
 
@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
               {children}
             </Contents>
           </main>
+          <SpeedInsights />
           <Analytics />
         </body>
       </Providers>

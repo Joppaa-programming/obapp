@@ -90,21 +90,22 @@ function handleLink(link){
 
                 </div><div id='business-logo' className='rounded-full bg-slate-900  w-32 h-32 -mt-14' > <img src={business.logo} alt={business.businessName} className="w-full h-full object-cover  rounded-3xl hover:opacity-60 transition duration-300" />   </div>
               </div>
-              <div className='flex justify-center items-center my-3 flex-col w-full'>
+              <div className='flex justify-center items-center  flex-col w-full'>
 
                 <div className='px-3 py-3 flex justify-center text-center items-center flex-col w-full'>
                   <p className='font-semibold text-3xl'>{business.businessName}</p>
-                  <div className='flex flex-row justify-start my-2 items-center hover:text-violet-600'> <FaMapMarker className='text-[12px] '/> <p onClick={() => handleClick(business.address)} className='text-[12px] px-2 my-2'>{business.address}</p></div>
-                  <p className=' p-2'>{business.contactNumber}  </p>
-                  {business.link? <p className='cursor-pointer p-2' onClick={() =>handleLink(business.link)}><ShareButton/></p> : ''}
+                  <div className='flex flex-row justify-start py-2 items-center hover:text-violet-600'> <FaMapMarker className='text-[12px] '/> <p onClick={() => handleClick(business.address)} className='text-[12px] px-2 '>{business.address}</p></div>
+                  <p className=' p-2 '>{business.contactNumber}  </p>
+                
                   </div>
                   {/* <Link href={'https://www.originally.black/'}  >
-                  <p >{business.category}  </p></Link></div> */}
+                  <p >{business.category}  </p></Link></div> */}             
               </div>
       
             </div>
-            <span id='description' className='px-7 mt-3 flex flex-col text-sm text-center'>
+            <span id='description' className='px-7 flex flex-col text-sm text-center'>
               <p>{business.description}</p>
+              {business.link? <p className='cursor-pointer p-2 mt-2' onClick={() =>handleLink(business.link)}><ShareButton/></p> : ''}
               {/* <p className='pt-3'>{business.services}</p> */}
             </span>
 
@@ -112,7 +113,7 @@ function handleLink(link){
 
 
         </div>
-        <div className='mt-10 pt-3 border-t-2 flex flex-col justify-center items-center '>
+        <div className='mt-[24px] pt-3 border-t-2 flex flex-col justify-center items-center '>
           <div className='pb-2 font-medium'> Origins </div>
           <Grid data={gridData} />
         </div>
