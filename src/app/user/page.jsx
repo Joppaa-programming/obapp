@@ -1,16 +1,10 @@
 "use client"
 import React from 'react';
-import Link from 'next/link';
-import { useRouter, usePathname, useParams } from 'next/navigation';
-import { IconContext } from "react-icons";
-import { FaAngleLeft, FaEllipsisH, FaLocationArrow, FaMapMarkerAlt, FaMapPin, FaShare } from 'react-icons/fa';
 import TopBar from '@/app/componets/topbar';
-import Button from '@/app/componets/button';
 // import { param } from 'express-validator';
 import ShareButton from '../componets/shareButton';
 import users from '../utils/users';
 import { useSelector } from 'react-redux';
-import { Search, binarySearchById } from '../helpers/minifunctions';
 import X3Grid from '../componets/3by3grid';
 import CircleImages from '../componets/circleImage';
 import SignUpScreen from '../componets/signUp';
