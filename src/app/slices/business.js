@@ -31,7 +31,7 @@ const businessesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBusinesses.pending, (state, actions) => {
-      console.log('businesses pending');
+    //  console.log('businesses pending');
       state.status = 'pending';
     }),
     builder.addCase(fetchBusinesses.fulfilled, (state, actions) => {
